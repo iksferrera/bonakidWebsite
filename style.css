@@ -1,0 +1,686 @@
+/* ==================================================
+   GLOBAL
+   ================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #000;
+
+    color: #fff;
+
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+/* Remove default link styling */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ==================================================
+   HERO
+   ================================================== */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: #000;
+
+}
+
+
+/* Hero image */
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        url("images/bona-desktop.png");
+
+    background-size: cover;
+
+    background-position: center top;
+
+    background-repeat: no-repeat;
+
+    /*
+        Start slightly zoomed in
+        and slowly return to normal size.
+    */
+
+    animation: heroZoom 5s ease-out forwards;
+
+    z-index: 0;
+}
+
+
+/* ==================================================
+   HERO DARK FADE
+   ================================================== */
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        /* Bottom fade */
+
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            #000 100%
+        ),
+
+        /* Side fade */
+
+        linear-gradient(
+            to right,
+            #000 0%,
+            transparent 10%,
+            transparent 90%,
+            #000 100%
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   HERO ZOOM ANIMATION
+   ================================================== */
+
+@keyframes heroZoom {
+
+    from {
+
+        transform: scale(1.10);
+
+    }
+
+    to {
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   NAVIGATION
+   ================================================== */
+
+.navbar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    padding: 30px 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 5;
+
+}
+
+
+/* Logo */
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+}
+
+
+/* Navigation links */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+}
+
+
+.nav-links a {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+.nav-links a:hover {
+
+    opacity: 0.55;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==================================================
+   HERO TITLE
+   ================================================== */
+
+.hero-title {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 90px;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    z-index: 3;
+
+}
+
+
+.hero-title h1 {
+
+    margin: 0;
+
+    font-size: clamp(60px, 10vw, 140px);
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: 8px;
+
+    text-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.8);
+
+}
+
+
+.hero-title p {
+
+    margin-top: 15px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    letter-spacing: 6px;
+
+}
+
+
+/* ==================================================
+   MAIN GRID
+   ================================================== */
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 4px;
+
+    background: #000;
+
+}
+
+
+/* ==================================================
+   CARDS
+   ================================================== */
+
+.card {
+
+    position: relative;
+
+    min-height: 420px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #111;
+
+    background-size: cover;
+
+    background-position: center;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+/* Card hover */
+
+.card:hover {
+
+    transform: scale(1.01);
+
+}
+
+
+/* ==================================================
+   CARD OVERLAY
+   ================================================== */
+
+.card-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.8)
+        );
+
+    transition:
+        background 0.4s ease;
+
+}
+
+
+.card:hover .card-overlay {
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.65)
+        );
+
+}
+
+
+/* ==================================================
+   CARD CONTENT
+   ================================================== */
+
+.card-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+    padding: 40px;
+
+}
+
+
+.card-content h2 {
+
+    margin: 0 0 15px;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+.card-content p {
+
+    max-width: 500px;
+
+    margin: 0 auto 25px;
+
+    line-height: 1.7;
+
+    color: #ddd;
+
+}
+
+
+/* ==================================================
+   BUTTON
+   ================================================== */
+
+.card-button {
+
+    display: inline-block;
+
+    padding: 12px 25px;
+
+    border: 1px solid #fff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+}
+
+
+.card-button:hover {
+
+    background: #fff;
+
+    color: #000;
+
+}
+
+
+/* ==================================================
+   MUSIC
+   ================================================== */
+
+.music {
+
+    background-image:
+        url("images/music.png");
+
+}
+
+
+/* ==================================================
+   VIDEOS
+   ================================================== */
+
+.videos {
+
+    background-image:
+        url("images/videos.jpg");
+
+}
+
+
+/* ==================================================
+   PHOTOS
+   ================================================== */
+
+.photos {
+
+    background-image:
+        url("images/photos.png");
+
+    grid-column: span 2;
+
+}
+
+
+/* ==================================================
+   SHOWS
+   ================================================== */
+
+.shows {
+
+    background-image:
+        url("images/shows.jpg");
+
+}
+
+
+/* ==================================================
+   ABOUT
+   ================================================== */
+
+.about {
+
+    background: #111;
+
+}
+
+
+/* ==================================================
+   NEWS
+   ================================================== */
+
+.news {
+
+    background: #080808;
+
+}
+
+
+/* ==================================================
+   FOOTER
+   ================================================== */
+
+footer {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    background: #000;
+
+    color: #777;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 700px) {
+
+
+    /* ----------------------------------------------
+       HERO
+       ---------------------------------------------- */
+
+    .hero {
+
+        height: 100vh;
+
+        min-height: 650px;
+
+    }
+
+
+    /*
+        Replace the desktop image
+        with your portrait/mobile image.
+    */
+
+    .hero::before {
+
+        background-image:
+            url("images/bona-mobile.jpeg");
+
+        background-size: cover;
+
+        background-position: center top;
+
+    }
+
+
+    /* ----------------------------------------------
+       NAVIGATION
+       ---------------------------------------------- */
+
+    .navbar {
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 20px;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 10px;
+
+        letter-spacing: 1.5px;
+
+    }
+
+
+    /* ----------------------------------------------
+       HERO TITLE
+       ---------------------------------------------- */
+
+    .hero-title {
+
+        bottom: 70px;
+
+    }
+
+
+    .hero-title h1 {
+
+        font-size: 52px;
+
+        letter-spacing: 4px;
+
+    }
+
+
+    .hero-title p {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    /* ----------------------------------------------
+       GRID
+       ---------------------------------------------- */
+
+    .grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* Photos no longer spans two columns */
+
+    .photos {
+
+        grid-column: span 1;
+
+    }
+
+
+    /* ----------------------------------------------
+       CARDS
+       ---------------------------------------------- */
+
+    .card {
+
+        min-height: 350px;
+
+    }
+
+
+    .card-content h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .card-content {
+
+        padding: 25px;
+
+    }
+
+}
