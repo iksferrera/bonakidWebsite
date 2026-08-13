@@ -1,6 +1,6 @@
-/* ==================================================
+/* =========================================================
    GLOBAL
-   ================================================== */
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -12,16 +12,18 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
 
     background: #000;
-
     color: #fff;
 
-    font-family: 'Montserrat', Arial, sans-serif;
+    font-family:
+        'Montserrat',
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
 }
-
-
-/* Remove default link styling */
 
 a {
     color: inherit;
@@ -29,31 +31,28 @@ a {
 }
 
 
-/* ==================================================
+/* =========================================================
    HERO
-   ================================================== */
+   ========================================================= */
 
 .hero {
-
     position: relative;
 
     width: 100%;
-
     height: 100vh;
-
     min-height: 650px;
 
     overflow: hidden;
 
     background: #000;
-
 }
 
 
-/* Hero image */
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
 
 .hero::before {
-
     content: "";
 
     position: absolute;
@@ -69,86 +68,74 @@ a {
 
     background-repeat: no-repeat;
 
-    /*
-        Start slightly zoomed in
-        and slowly return to normal size.
-    */
-
-    animation: heroZoom 5s ease-out forwards;
-
     z-index: 0;
+
+    animation:
+        heroZoom
+        5s
+        ease-out
+        forwards;
 }
 
 
-/* ==================================================
-   HERO DARK FADE
-   ================================================== */
+/* =========================================================
+   HERO DARK GRADIENT
+   ========================================================= */
 
 .hero::after {
-
     content: "";
 
     position: absolute;
 
     inset: 0;
 
-    background:
+    z-index: 1;
 
-        /* Bottom fade */
+    pointer-events: none;
+
+    background:
 
         linear-gradient(
             to bottom,
-            transparent 55%,
+            rgba(0, 0, 0, 0) 45%,
             #000 100%
         ),
-
-        /* Side fade */
 
         linear-gradient(
             to right,
             #000 0%,
-            transparent 10%,
-            transparent 90%,
+            transparent 12%,
+            transparent 88%,
             #000 100%
         );
-
-    z-index: 1;
-
-    pointer-events: none;
 }
 
 
-/* ==================================================
-   HERO ZOOM ANIMATION
-   ================================================== */
+/* =========================================================
+   HERO ZOOM
+   ========================================================= */
 
 @keyframes heroZoom {
 
     from {
-
         transform: scale(1.10);
-
     }
 
     to {
-
         transform: scale(1);
-
     }
 
 }
 
 
-/* ==================================================
+/* =========================================================
    NAVIGATION
-   ================================================== */
+   ========================================================= */
 
 .navbar {
-
     position: absolute;
 
     top: 0;
-
     left: 0;
 
     width: 100%;
@@ -161,39 +148,33 @@ a {
 
     justify-content: space-between;
 
-    z-index: 5;
-
+    z-index: 10;
 }
 
 
 /* Logo */
 
 .logo {
-
     font-size: 24px;
 
     font-weight: 900;
 
     letter-spacing: 4px;
-
 }
 
 
 /* Navigation links */
 
 .nav-links {
-
     display: flex;
 
     align-items: center;
 
     gap: 35px;
-
 }
 
 
 .nav-links a {
-
     font-size: 13px;
 
     font-weight: 700;
@@ -201,49 +182,58 @@ a {
     letter-spacing: 2px;
 
     transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-
+        opacity 0.3s ease;
 }
 
 
 .nav-links a:hover {
-
-    opacity: 0.55;
-
-    transform: translateY(-2px);
-
+    opacity: 0.5;
 }
 
 
-/* ==================================================
+/* =========================================================
    HERO TITLE
-   ================================================== */
+   ========================================================= */
 
 .hero-title {
-
     position: absolute;
 
     left: 50%;
 
     bottom: 90px;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     width: 100%;
 
     text-align: center;
 
-    z-index: 3;
-
+    z-index: 5;
 }
 
 
-.hero-title h1 {
+/* =========================================================
+   BONAKID TITLE
+   ========================================================= */
 
+.bonakid-title {
     margin: 0;
 
-    font-size: clamp(60px, 10vw, 140px);
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    white-space: nowrap;
+
+    font-size:
+        clamp(
+            60px,
+            10vw,
+            140px
+        );
 
     font-weight: 900;
 
@@ -252,13 +242,165 @@ a {
     letter-spacing: 8px;
 
     text-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.8);
+        0 3px 10px
+        rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================================
+   INDIVIDUAL LETTERS
+   ========================================================= */
+
+.bonakid-title span {
+    display: inline-block;
+
+    color: #000;
+
+    opacity: 0;
+
+    animation-duration:
+        1.2s;
+
+    animation-timing-function:
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+
+    animation-fill-mode:
+        forwards;
+}
+
+
+/* Odd letters come from top */
+
+.bonakid-title span:nth-child(odd) {
+    animation-name:
+        letterFromTop;
+}
+
+
+/* Even letters come from bottom */
+
+.bonakid-title span:nth-child(even) {
+    animation-name:
+        letterFromBottom;
+}
+
+
+/* =========================================================
+   LETTER FROM TOP
+   ========================================================= */
+
+@keyframes letterFromTop {
+
+    0% {
+        transform:
+            translateY(-120px);
+
+        color:
+            #000;
+
+        opacity:
+            0;
+    }
+
+    45% {
+        transform:
+            translateY(20px);
+
+        color:
+            #666;
+
+        opacity:
+            0.7;
+    }
+
+    70% {
+        transform:
+            translateY(-5px);
+
+        color:
+            #fff;
+
+        opacity:
+            1;
+    }
+
+    100% {
+        transform:
+            translateY(0);
+
+        color:
+            #fff;
+
+        opacity:
+            1;
+    }
 
 }
 
 
-.hero-title p {
+/* =========================================================
+   LETTER FROM BOTTOM
+   ========================================================= */
 
+@keyframes letterFromBottom {
+
+    0% {
+        transform:
+            translateY(120px);
+
+        color:
+            #000;
+
+        opacity:
+            0;
+    }
+
+    45% {
+        transform:
+            translateY(-20px);
+
+        color:
+            #666;
+
+        opacity:
+            0.7;
+    }
+
+    70% {
+        transform:
+            translateY(5px);
+
+        color:
+            #fff;
+
+        opacity:
+            1;
+    }
+
+    100% {
+        transform:
+            translateY(0);
+
+        color:
+            #fff;
+
+        opacity:
+            1;
+    }
+
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+   ========================================================= */
+
+.hero-title p {
     margin-top: 15px;
 
     font-size: 15px;
@@ -267,35 +409,80 @@ a {
 
     letter-spacing: 6px;
 
+    opacity: 0;
+
+    animation:
+        subtitleReveal
+        0.8s
+        ease-out
+        1.5s
+        forwards;
 }
 
 
-/* ==================================================
-   MAIN GRID
-   ================================================== */
+/* =========================================================
+   SUBTITLE ANIMATION
+   ========================================================= */
+
+@keyframes subtitleReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   CARD GRID
+   ========================================================= */
 
 .grid {
-
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 4px;
 
+    width: 100%;
+
     background: #000;
 
+    /*
+        Keep overflow visible.
+
+        This is especially important on mobile
+        because the cards start outside the viewport
+        before sliding into position.
+    */
+
+    overflow: visible;
 }
 
 
-/* ==================================================
+/* =========================================================
    CARDS
-   ================================================== */
+   ========================================================= */
 
 .card {
-
     position: relative;
 
-    min-height: 420px;
+    width: 100%;
+
+    min-height: 450px;
+
+    overflow: hidden;
 
     display: flex;
 
@@ -303,70 +490,189 @@ a {
 
     justify-content: center;
 
-    overflow: hidden;
-
     background: #111;
 
-    background-size: cover;
+    /*
+        Cards are visible by default.
+    */
 
-    background-position: center;
+    opacity: 1;
 
     transition:
-        transform 0.4s ease;
-
+        transform
+        0.9s
+        cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
 }
 
 
-/* Card hover */
+/* =========================================================
+   CARD STARTING POSITIONS
+   ========================================================= */
 
-.card:hover {
 
-    transform: scale(1.01);
+/*
+    MUSIC
+    Comes from right
+*/
 
+.music {
+    transform:
+        translateX(100%);
 }
 
 
-/* ==================================================
-   CARD OVERLAY
-   ================================================== */
+/*
+    VIDEOS
+    Comes from left
+*/
 
-.card-overlay {
+.videos {
+    transform:
+        translateX(-100%);
+}
+
+
+/*
+    PHOTOS
+    Comes from right
+*/
+
+.photos {
+    transform:
+        translateX(100%);
+}
+
+
+/*
+    SHOWS
+    Comes from left
+*/
+
+.shows {
+    transform:
+        translateX(-100%);
+}
+
+
+/* =========================================================
+   CARD FINAL POSITION
+   ========================================================= */
+
+.card.visible {
+    transform:
+        translateX(0);
+}
+
+
+/* =========================================================
+   CARD IMAGE
+   ========================================================= */
+
+.card::before {
+    content: "";
 
     position: absolute;
 
     inset: 0;
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.2),
-            rgba(0, 0, 0, 0.8)
-        );
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    z-index: 0;
 
     transition:
-        background 0.4s ease;
-
+        transform
+        0.6s
+        ease;
 }
 
 
-.card:hover .card-overlay {
+/* =========================================================
+   MUSIC IMAGE
+   ========================================================= */
+
+.music::before {
+    background-image:
+        url("images/music.png");
+}
+
+
+/* =========================================================
+   VIDEOS IMAGE
+   ========================================================= */
+
+.videos::before {
+    background-image:
+        url("images/videos.jpeg");
+}
+
+
+/* =========================================================
+   PHOTOS IMAGE
+   ========================================================= */
+
+.photos::before {
+    background-image:
+        url("images/photos.png");
+}
+
+
+/* =========================================================
+   SHOWS IMAGE
+   ========================================================= */
+
+.shows::before {
+    background-image:
+        url("images/shows.png");
+}
+
+
+/* =========================================================
+   CARD IMAGE HOVER
+   ========================================================= */
+
+.card:hover::before {
+    transform:
+        scale(1.05);
+}
+
+
+/* =========================================================
+   CARD DARK OVERLAY
+   ========================================================= */
+
+.card-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.65)
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.85)
         );
-
 }
 
 
-/* ==================================================
+/* =========================================================
    CARD CONTENT
-   ================================================== */
+   ========================================================= */
 
 .card-content {
-
     position: relative;
 
     z-index: 2;
@@ -374,313 +680,558 @@ a {
     text-align: center;
 
     padding: 40px;
-
 }
 
+
+/* Card title */
 
 .card-content h2 {
+    margin:
+        0 0 15px;
 
-    margin: 0 0 15px;
+    font-size:
+        42px;
 
-    font-size: 42px;
+    font-weight:
+        800;
 
-    font-weight: 800;
+    letter-spacing:
+        4px;
 
-    letter-spacing: 4px;
-
+    text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.8);
 }
 
+
+/* Card description */
 
 .card-content p {
+    max-width:
+        500px;
 
-    max-width: 500px;
+    margin:
+        0 auto 25px;
 
-    margin: 0 auto 25px;
+    line-height:
+        1.7;
 
-    line-height: 1.7;
-
-    color: #ddd;
-
+    color:
+        #ddd;
 }
 
 
-/* ==================================================
-   BUTTON
-   ================================================== */
+/* =========================================================
+   CARD BUTTON
+   ========================================================= */
 
 .card-button {
+    display:
+        inline-block;
 
-    display: inline-block;
+    padding:
+        12px 25px;
 
-    padding: 12px 25px;
+    border:
+        1px solid #fff;
 
-    border: 1px solid #fff;
+    font-size:
+        12px;
 
-    font-size: 12px;
+    font-weight:
+        700;
 
-    font-weight: 700;
-
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 
     transition:
-        background 0.3s ease,
-        color 0.3s ease;
+        background
+        0.3s ease,
 
+        color
+        0.3s ease,
+
+        transform
+        0.3s ease;
 }
 
 
 .card-button:hover {
+    background:
+        #fff;
 
-    background: #fff;
+    color:
+        #000;
 
-    color: #000;
-
+    transform:
+        translateY(-2px);
 }
 
 
-/* ==================================================
-   MUSIC
-   ================================================== */
-
-.music {
-
-    background-image:
-        url("images/music.png");
-
-}
-
-
-/* ==================================================
-   VIDEOS
-   ================================================== */
-
-.videos {
-
-    background-image:
-        url("images/videos.jpg");
-
-}
-
-
-/* ==================================================
-   PHOTOS
-   ================================================== */
-
-.photos {
-
-    background-image:
-        url("images/photos.png");
-
-    grid-column: span 2;
-
-}
-
-
-/* ==================================================
-   SHOWS
-   ================================================== */
-
-.shows {
-
-    background-image:
-        url("images/shows.jpg");
-
-}
-
-
-/* ==================================================
-   ABOUT
-   ================================================== */
-
-.about {
-
-    background: #111;
-
-}
-
-
-/* ==================================================
-   NEWS
-   ================================================== */
-
-.news {
-
-    background: #080808;
-
-}
-
-
-/* ==================================================
+/* =========================================================
    FOOTER
-   ================================================== */
+   ========================================================= */
 
 footer {
+    padding:
+        50px 20px;
 
-    padding: 50px 20px;
+    text-align:
+        center;
 
-    text-align: center;
+    background:
+        #000;
 
-    background: #000;
+    color:
+        #777;
 
-    color: #777;
+    font-size:
+        12px;
 
-    font-size: 12px;
-
-    letter-spacing: 1px;
-
+    letter-spacing:
+        1px;
 }
 
 
-/* ==================================================
+/* =========================================================
    MOBILE
-   ================================================== */
+   ========================================================= */
 
 @media (max-width: 700px) {
 
 
-    /* ----------------------------------------------
-       HERO
-       ---------------------------------------------- */
+    /* =====================================================
+       MOBILE HERO
+       ===================================================== */
 
     .hero {
+        height:
+            100svh;
 
-        height: 100vh;
-
-        min-height: 650px;
-
+        min-height:
+            600px;
     }
 
 
     /*
-        Replace the desktop image
-        with your portrait/mobile image.
+        Use the dedicated mobile BonaKid image.
     */
 
     .hero::before {
-
         background-image:
             url("images/bona-mobile.jpeg");
 
-        background-size: cover;
+        background-size:
+            cover;
 
-        background-position: center top;
-
+        background-position:
+            center top;
     }
 
 
-    /* ----------------------------------------------
-       NAVIGATION
-       ---------------------------------------------- */
+    /* =====================================================
+       MOBILE NAVIGATION
+       ===================================================== */
 
     .navbar {
+        padding:
+            20px;
 
-        padding: 20px;
+        flex-direction:
+            column;
 
-        flex-direction: column;
-
-        gap: 20px;
-
+        gap:
+            18px;
     }
 
 
     .logo {
-
-        font-size: 20px;
-
+        font-size:
+            20px;
     }
 
 
     .nav-links {
+        gap:
+            15px;
 
-        gap: 15px;
+        flex-wrap:
+            wrap;
 
-        flex-wrap: wrap;
-
-        justify-content: center;
-
+        justify-content:
+            center;
     }
 
 
     .nav-links a {
+        font-size:
+            10px;
 
-        font-size: 10px;
-
-        letter-spacing: 1.5px;
-
+        letter-spacing:
+            1.5px;
     }
 
 
-    /* ----------------------------------------------
-       HERO TITLE
-       ---------------------------------------------- */
+    /* =====================================================
+       MOBILE HERO TITLE
+       ===================================================== */
 
     .hero-title {
-
-        bottom: 70px;
-
+        bottom:
+            65px;
     }
 
 
-    .hero-title h1 {
+    .bonakid-title {
+        font-size:
+            clamp(
+                40px,
+                13vw,
+                65px
+            );
 
-        font-size: 52px;
-
-        letter-spacing: 4px;
-
+        letter-spacing:
+            3px;
     }
 
 
     .hero-title p {
+        font-size:
+            9px;
 
-        font-size: 10px;
+        letter-spacing:
+            3px;
+    }
 
-        letter-spacing: 3px;
+
+    /* =====================================================
+       MOBILE LETTER ANIMATIONS
+       ===================================================== */
+
+    @keyframes letterFromTop {
+
+        0% {
+            transform:
+                translateY(-80px);
+
+            color:
+                #000;
+
+            opacity:
+                0;
+        }
+
+        45% {
+            transform:
+                translateY(15px);
+
+            color:
+                #666;
+
+            opacity:
+                0.7;
+        }
+
+        70% {
+            transform:
+                translateY(-4px);
+
+            color:
+                #fff;
+
+            opacity:
+                1;
+        }
+
+        100% {
+            transform:
+                translateY(0);
+
+            color:
+                #fff;
+
+            opacity:
+                1;
+        }
 
     }
 
 
-    /* ----------------------------------------------
-       GRID
-       ---------------------------------------------- */
+    @keyframes letterFromBottom {
+
+        0% {
+            transform:
+                translateY(80px);
+
+            color:
+                #000;
+
+            opacity:
+                0;
+        }
+
+        45% {
+            transform:
+                translateY(-15px);
+
+            color:
+                #666;
+
+            opacity:
+                0.7;
+        }
+
+        70% {
+            transform:
+                translateY(4px);
+
+            color:
+                #fff;
+
+            opacity:
+                1;
+        }
+
+        100% {
+            transform:
+                translateY(0);
+
+            color:
+                #fff;
+
+            opacity:
+                1;
+        }
+
+    }
+
+
+    /* =====================================================
+       MOBILE GRID
+       ===================================================== */
 
     .grid {
+        display:
+            grid;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
+        gap:
+            3px;
+
+        width:
+            100%;
+
+        /*
+            IMPORTANT:
+
+            Do NOT use overflow:hidden here.
+
+            Otherwise the cards can be clipped while
+            they are entering from the sides.
+        */
+
+        overflow:
+            visible;
     }
 
 
-    /* Photos no longer spans two columns */
-
-    .photos {
-
-        grid-column: span 1;
-
-    }
-
-
-    /* ----------------------------------------------
-       CARDS
-       ---------------------------------------------- */
+    /* =====================================================
+       MOBILE CARDS
+       ===================================================== */
 
     .card {
+        width:
+            100%;
 
-        min-height: 350px;
+        min-height:
+            420px;
 
+        opacity:
+            1;
+
+        transition:
+            transform
+            0.8s
+            cubic-bezier(
+                0.16,
+                1,
+                0.3,
+                1
+            );
+    }
+
+
+    /* =====================================================
+       MOBILE CARD START POSITIONS
+       ===================================================== */
+
+
+    /*
+        MUSIC
+        Right → Left
+    */
+
+    .music {
+        transform:
+            translateX(70%);
+    }
+
+
+    /*
+        VIDEOS
+        Left → Right
+    */
+
+    .videos {
+        transform:
+            translateX(-70%);
+    }
+
+
+    /*
+        PHOTOS
+        Right → Left
+    */
+
+    .photos {
+        transform:
+            translateX(70%);
+    }
+
+
+    /*
+        SHOWS
+        Left → Right
+    */
+
+    .shows {
+        transform:
+            translateX(-70%);
+    }
+
+
+    /* =====================================================
+       MOBILE CARD FINAL POSITION
+       ===================================================== */
+
+    .card.visible {
+        transform:
+            translateX(0);
+    }
+
+
+    /* =====================================================
+       MOBILE CARD CONTENT
+       ===================================================== */
+
+    .card-content {
+        padding:
+            25px;
     }
 
 
     .card-content h2 {
+        font-size:
+            32px;
 
-        font-size: 32px;
-
+        letter-spacing:
+            3px;
     }
 
 
-    .card-content {
+    .card-content p {
+        font-size:
+            14px;
 
-        padding: 25px;
+        line-height:
+            1.6;
+    }
 
+
+    /* =====================================================
+       MOBILE CARD IMAGES
+       ===================================================== */
+
+    .card::before {
+        background-position:
+            center center;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+
+    .hero {
+        min-height:
+            550px;
+    }
+
+
+    .bonakid-title {
+        font-size:
+            38px;
+
+        letter-spacing:
+            2px;
+    }
+
+
+    .nav-links {
+        gap:
+            10px;
+    }
+
+
+    .nav-links a {
+        font-size:
+            9px;
+    }
+
+
+    .card {
+        min-height:
+            360px;
+    }
+
+
+    .card-content h2 {
+        font-size:
+            28px;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero::before,
+    .bonakid-title span,
+    .hero-title p,
+    .card {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+        transform:
+            none;
+
+        opacity:
+            1;
     }
 
 }
