@@ -442,6 +442,23 @@ a {
 
 }
 
+  /* =====================================================
+       DESKTOP LYRICS CARD ANIMATIONS
+       ===================================================== */
+
+
+    @keyframes lyricsSlideUp {
+    from {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* =========================================================
    CARD GRID
@@ -492,6 +509,59 @@ a {
 
     background: #111;
 
+
+
+    /* =========================================================
+       CARD LYRICS ANIMATION
+       ========================================================= */ 
+
+       .lyrics-title,
+       .lyrics-text {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100%;
+
+    overflow: hidden;
+
+    display: grid;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: transparent;
+
+       }
+
+       .lyrics-author {
+    justify-content: end;
+    width: 100%;
+    background: transparent;
+    min-height: 100%;
+    padding-right: 50px;
+    font-style: normal;
+}
+
+       #lyrics-author {
+       text-align: right; 
+       font-style: normal;
+       width: 100%;
+       }
+
+       #lyrics-content {
+
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+       }
+
+      .lyrics-text p {
+    font-style: italic;
+}
     /*
         Cards are visible by default.
     */
@@ -536,6 +606,46 @@ a {
         translateX(-100%);
 }
 
+/*
+    LYRICS
+    Comes from bottom to top
+*/
+
+.lyrics {
+    transform:
+        translateX(100%);
+}
+
+/* 
+    Since the lyrics card is taller than the others, we want it to span both columns in the grid.
+*/  
+
+.lyrics {
+    grid-column: 1 / -1;
+
+    opacity: 0;
+    transform: translateY(150px);
+}
+
+.lyrics.visible {
+    animation: lyricsSlideUp 0.8s ease-out forwards;
+}
+
+.lyrics-title.visible {
+    animation: lyricsSlideUp 1.8s ease-out forwards;
+}
+
+.lyrics-text.visible {
+    animation: lyricsSlideUp 2.4s ease-out forwards;
+}
+
+.lyrics-author.visible {
+    animation: lyricsSlideUp 2.8s ease-out forwards;
+}
+
+.lyrics-button.visible {
+    animation: lyricsSlideUp 2.8s ease-out forwards;
+}
 
 /*
     PHOTOS
@@ -614,7 +724,7 @@ a {
 
 .videos::before {
     background-image:
-        url("images/videos.jpg");
+        url("images/videos.png");
 }
 
 
@@ -1005,6 +1115,23 @@ footer {
 
     }
 
+      /* =====================================================
+       MOBILE LYRICS CARD ANIMATIONS
+       ===================================================== */
+
+
+    @keyframes lyricsSlideUp {
+    from {
+        transform: translateY(150px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
     /* =====================================================
        MOBILE GRID
@@ -1088,7 +1215,6 @@ footer {
         transform:
             translateX(-70%);
     }
-
 
     /*
         PHOTOS
