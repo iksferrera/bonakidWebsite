@@ -61,3 +61,38 @@ window.addEventListener("click", function(event) {
     }
 
 });
+
+// Music Modal
+
+function openMusic() {
+
+    const modal = document.getElementById("musicModal");
+
+    modal.style.display = "flex";
+}
+
+
+function closeMusic() {
+
+    const modal = document.getElementById("musicModal");
+
+    const audio = document.getElementById("audioPlayer");
+
+    audio.pause();
+
+    modal.style.display = "none";
+}
+
+
+function playSong(title, file) {
+
+    const audio = document.getElementById("audioPlayer");
+
+    const songTitle = document.getElementById("songTitle");
+
+    songTitle.textContent = title;
+
+    audio.src = file;
+
+    audio.play();
+}

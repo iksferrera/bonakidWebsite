@@ -130,12 +130,12 @@
                     recordings and releases.
                 </p>
 
-                <a
-                    href="#"
-                    class="card-button"
+                <button
+                  class="card-button"
+                  onclick="openMusic()"
                 >
-                    LISTEN
-                </a>
+                  LISTEN
+                 </button>
 
             </div>
 
@@ -337,6 +337,85 @@
     </div>
 
 </div>
+
+    <!-- Music Playlist Modal -->
+        <!-- =========================================
+     MUSIC PLAYER
+     ========================================= -->
+
+<div id="musicModal" class="music-modal">
+
+    <div class="music-modal-content">
+
+        <button
+            class="music-close"
+            onclick="closeMusic()"
+        >
+            &times;
+        </button>
+
+        <h2>BonaKid</h2>
+
+        <p class="playlist-title">
+            Music
+        </p>
+
+
+        <!-- CURRENT SONG -->
+
+        <div class="now-playing">
+
+            <h3 id="songTitle">
+                Sons of Annihilation
+            </h3>
+
+            <audio
+                id="audioPlayer"
+                controls
+            >
+                <source
+                    src="music/sons-of-annihilation.mp3"
+                    type="audio/mpeg"
+                >
+            </audio>
+
+        </div>
+
+
+        <!-- PLAYLIST -->
+
+        <div class="playlist">
+
+            <button
+                class="song"
+                onclick="playSong(
+                    'Sons of Annihilation',
+                    'music/SonsofAnnihilation.mp3'
+                )"
+            >
+                <span>01</span>
+                <span>Sons of Annihilation</span>
+            </button>
+
+
+            <button
+                class="song"
+                onclick="playSong(
+                    'QueensGambit',
+                    'music/QueensGambit.mp3'
+                )"
+            >
+                <span>02</span>
+                <span>QueensGambit</span>
+            </button>
+        </div>
+
+    </div>
+
+</div>
+
+
+
     <!-- =========================================
          JAVASCRIPT
          ========================================= -->

@@ -836,7 +836,7 @@ a {
    ========================================================= */
 
 .card-button {
-    
+
     display: inline-block;
 
     margin-top: 25px;
@@ -896,6 +896,211 @@ footer {
     letter-spacing:
         1px;
 }
+
+/* =========================================
+   MUSIC MODAL
+   ========================================= */
+
+.music-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* =========================================
+   MUSIC CONTENT
+   ========================================= */
+
+.music-modal-content {
+
+    position: relative;
+
+    width: 90%;
+    max-width: 700px;
+
+    padding: 40px;
+
+    background: #151515;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.7);
+
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+   ========================================= */
+
+.music-close {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+.music-close:hover {
+
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   TITLE
+   ========================================= */
+
+.music-modal-content h2 {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+.playlist-title {
+
+    margin-top: 5px;
+
+    margin-bottom: 30px;
+
+    opacity: 0.6;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   NOW PLAYING
+   ========================================= */
+
+.now-playing {
+
+    margin-bottom: 30px;
+}
+
+
+.now-playing h3 {
+
+    margin-bottom: 15px;
+
+    font-size: 1.2rem;
+
+    font-weight: 600;
+}
+
+
+#audioPlayer {
+
+    width: 100%;
+}
+
+
+/* =========================================
+   PLAYLIST
+   ========================================= */
+
+.playlist {
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+
+.song {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    width: 100%;
+
+    padding: 18px 5px;
+
+    border: none;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    background: transparent;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+
+.song:hover {
+
+    background: rgba(255, 255, 255, 0.06);
+
+    padding-left: 12px;
+}
+
+
+.song span:first-child {
+
+    width: 25px;
+
+    opacity: 0.4;
+
+}
+
+
+.song span:last-child {
+
+    letter-spacing: 0.5px;
+}
+
+
 
 
 /* =========================================================
@@ -1200,6 +1405,33 @@ footer {
             translateX(70%);
     }
 
+    .music-modal {
+
+        padding: 15px;
+    }
+
+
+    .music-modal-content {
+
+        width: 100%;
+
+        padding: 30px 20px;
+    }
+
+
+    .music-modal-content h2 {
+
+        font-size: 1.5rem;
+    }
+
+
+    .song {
+
+        padding: 16px 5px;
+
+        font-size: 0.85rem;
+    }
+
 
     /*
         VIDEOS
@@ -1355,7 +1587,35 @@ footer {
             1;
     }
 
+    .music-modal {
+
+        padding: 15px;
+    }
+
+
+    .music-modal-content {
+
+        width: 100%;
+
+        padding: 30px 20px;
+    }
+
+
+    .music-modal-content h2 {
+
+        font-size: 1.5rem;
+    }
+
+
+    .song {
+
+        padding: 16px 5px;
+
+        font-size: 0.85rem;
+    }
+
 }
+
 
 
 
