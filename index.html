@@ -166,12 +166,12 @@
                     behind-the-scenes footage.
                 </p>
 
-                <a
-                    href="#"
+                <button
                     class="card-button"
+                    onclick="openVideo()"
                 >
                     WATCH
-                </a>
+                </button>
 
             </div>
 
@@ -310,7 +310,33 @@
     </footer>
 
 
+    <div id="videoModal" class="video-modal">
 
+    <div class="video-modal-content">
+
+        <button
+            class="video-close"
+            onclick="closeVideo()"
+        >
+            &times;
+        </button>
+
+        <div class="video-container">
+
+            <iframe
+                id="youtubeVideo"
+                src=""
+                title="BonaKid YouTube Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </div>
+
+</div>
     <!-- =========================================
          JAVASCRIPT
          ========================================= -->
