@@ -48,27 +48,45 @@
 
         <nav class="navbar">
 
-            <div class="logo">
-                BonaKid
-            </div>
+            <!-- LEFT -->
+                <div class="logo">
+                    BonaKid
+                </div>
 
-            <div class="nav-links">
 
-                <a href="#music">
-                    MUSIC
-                </a>
+         <!-- CENTER / NAVIGATION -->
+                <div class="nav-links">
 
-                <a href="#videos">
-                    VIDEOS
-                </a>
+                    <a href="#music">MUSIC</a>
+                    <a href="#videos">VIDEOS</a>
+                    <a href="#photos">PHOTOS</a>
+                    <a href="#shows">SHOWS</a>
 
-                <a href="#photos">
-                    PHOTOS
-                </a>
+                </div>
 
-                <a href="#shows">
-                    SHOWS
-                </a>
+
+        <!-- RIGHT / NOW PLAYING -->
+            <div class="header-player">
+
+                    <button
+                         id="headerPlayButton"
+                         class="header-play-button"
+                         onclick="toggleHeaderMusic()"
+                    >
+                        ▶
+                    </button>
+
+                <div class="header-now-playing">
+
+                     <span class="playing-label">
+                         NOW PLAYING
+                     </span>
+
+                    <span id="headerSongTitle">
+                         Sons of Annihilation
+                    </span>
+
+                </div>
 
             </div>
 

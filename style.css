@@ -49,7 +49,9 @@ a {
     width: 100%;
     max-width: 100%;
 
-    height: 100vh;
+    height: calc(100vh - 75px);
+    padding-top: 75px;
+
     min-height: 650px;
 
     overflow: hidden;
@@ -139,16 +141,21 @@ a {
    NAVIGATION
    ========================================================= */
 
+/* =========================================================
+   FIXED HEADER
+   ========================================================= */
+
 .navbar {
-    position: absolute;
+    position: fixed;
 
     top: 0;
     left: 0;
 
     width: 100%;
-    max-width: 100%;
+    height: 75px;
 
-    padding: 30px 50px;
+    padding:
+        0 35px;
 
     display: flex;
 
@@ -156,38 +163,55 @@ a {
 
     justify-content: space-between;
 
-    z-index: 10;
+    background:
+        rgba(0, 0, 0, 0.05);
+
+    backdrop-filter:
+        blur(5px);
+
+    -webkit-backdrop-filter:
+        blur(5px);
+
+    z-index: 9998;
+
+    border-bottom: none;
 }
 
 
 /* Logo */
 
 .logo {
+    flex-shrink: 0;
+
     font-size: 24px;
 
     font-weight: 900;
 
     letter-spacing: 4px;
+
+    white-space: nowrap;
 }
 
 
 /* Navigation links */
 
-.nav-links {
+   .nav-links {
     display: flex;
 
     align-items: center;
 
-    gap: 35px;
+    gap: 30px;
 }
 
 
 .nav-links a {
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: 700;
 
     letter-spacing: 2px;
+
+    color: #fff;
 
     transition:
         opacity 0.3s ease;
@@ -198,6 +222,116 @@ a {
     opacity: 0.5;
 }
 
+/* =========================================================
+   HEADER MUSIC PLAYER
+   ========================================================= */
+
+.header-player {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 220px;
+
+    justify-content: flex-end;
+}
+
+/* Player Button */
+
+.header-play-button {
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.6);
+
+    border-radius: 50%;
+
+    background:
+        transparent;
+
+    color:
+        #fff;
+
+    font-size:
+        12px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.header-play-button:hover {
+
+    background:
+        #fff;
+
+    color:
+        #000;
+}
+
+/* Now Playing Text */
+
+.header-now-playing {
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    min-width: 0;
+
+    max-width: 180px;
+}
+
+
+.playing-label {
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color:
+        #777;
+
+    margin-bottom: 3px;
+}
+
+
+#headerSongTitle {
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    color:
+        #fff;
+}
 
 /* =========================================================
    HERO TITLE
@@ -1305,7 +1439,10 @@ footer {
         max-width: 100%;
 
         height:
-            100svh;
+            calc(100svh - 60px);
+
+        margin-top:
+            60px;
 
         min-height:
             600px;
@@ -1321,6 +1458,7 @@ footer {
 
         background-position:
             center top;
+        
     }
 
 
@@ -1329,45 +1467,77 @@ footer {
        ===================================================== */
 
     .navbar {
-        width: 100%;
-        max-width: 100%;
+
+        height: 60px;
 
         padding:
-            20px;
-
-        flex-direction:
-            column;
-
-        gap:
-            18px;
+            0 15px;
     }
 
 
     .logo {
+
         font-size:
-            20px;
+            18px;
+
+        letter-spacing:
+            3px;
     }
 
 
     .nav-links {
-        gap:
-            15px;
 
-        flex-wrap:
-            wrap;
-
-        justify-content:
-            center;
+        display:
+            none;
     }
 
 
-    .nav-links a {
+    .header-player {
+
+        min-width:
+            0;
+
+        gap:
+            8px;
+    }
+
+
+    .header-play-button {
+
+        width:
+            30px;
+
+        height:
+            30px;
+
         font-size:
             10px;
+    }
+
+
+    .header-now-playing {
+
+        max-width:
+            120px;
+    }
+
+
+    .playing-label {
+
+        font-size:
+            7px;
 
         letter-spacing:
             1.5px;
     }
+
+
+    #headerSongTitle {
+
+        font-size:
+            9px;
+    }
+
 
 
     /* =====================================================

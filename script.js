@@ -96,3 +96,62 @@ function playSong(title, file) {
 
     audio.play();
 }
+
+// Toggle play/pause for the header music player
+
+function toggleHeaderMusic() {
+
+    const audio =
+        document.getElementById("audioPlayer");
+
+    const button =
+        document.getElementById("headerPlayButton");
+
+    if (audio.paused) {
+
+        audio.play();
+
+        button.textContent = "❚❚";
+
+    } else {
+
+        audio.pause();
+
+        button.textContent = "▶";
+
+    }
+}
+
+
+
+
+/* automatically play the music when the headher player is opened */
+
+
+
+const audio =
+    document.getElementById("audioPlayer");
+
+const headerButton =
+    document.getElementById("headerPlayButton");
+
+
+audio.addEventListener("play", () => {
+
+    headerButton.textContent = "❚❚";
+
+});
+
+
+audio.addEventListener("pause", () => {
+
+    headerButton.textContent = "▶";
+
+});
+
+
+audio.addEventListener("ended", () => {
+
+    headerButton.textContent = "▶";
+
+});
