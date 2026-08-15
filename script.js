@@ -196,17 +196,17 @@ audio.addEventListener("ended", function() {
 
 const galleryPhotos = [
 
-    "images/photos/Image2.jpg",
-    "images/photos/Image1.jpg",
-    "images/photos/Image3.jpg",
-    "images/photos/Image4.jpg",
-    "images/photos/Image5.jpg",
-    "images/photos/Image6.jpg",
-    "images/photos/Image7.jpg",
-    "images/photos/Image8.jpg",
-    "images/photos/Image9.jpg",
-    "images/photos/Image10.jpg",
-    "images/photos/Image11.jpg"
+    "images/photos/Image2.webp",
+    "images/photos/Image1.webp",
+    "images/photos/Image3.webp",
+    "images/photos/Image4.webp",
+    "images/photos/Image5.webp",
+    "images/photos/Image6.webp",
+    "images/photos/Image7.webp",
+    "images/photos/Image8.webp",
+    "images/photos/Image9.webp",
+    "images/photos/Image10.webp",
+    "images/photos/Image11.webp"
     
 
 ];

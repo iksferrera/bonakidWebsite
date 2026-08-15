@@ -72,7 +72,7 @@ a {
     inset: 0;
 
     background-image:
-        url("images/bona-desktop.png");
+        url("images/bona-desktop.webp");
 
     background-size: cover;
     background-position: center top;
@@ -872,7 +872,7 @@ a {
 
 .music::before {
     background-image:
-        url("images/music.png");
+        url("images/music.webp");
 }
 
 
@@ -880,14 +880,10 @@ a {
    VIDEOS IMAGE
    ========================================================= */
 
-/*
-   IMPORTANT:
-   Your file is videos.png, not video.png
-*/
 
 .videos::before {
     background-image:
-        url("images/videos.png");
+        url("images/videos.webp");
 }
 
 
@@ -897,7 +893,7 @@ a {
 
 .photos::before {
     background-image:
-        url("images/photos.png");
+        url("images/photos.webp");
 }
 
 
@@ -907,7 +903,7 @@ a {
 
 .shows::before {
     background-image:
-        url("images/shows.png");
+        url("images/shows.webp");
 }
 
 
@@ -1634,7 +1630,7 @@ footer {
 
     .hero::before {
         background-image:
-            url("images/bona-mobile.jpeg");
+            url("images/bona-mobile.webp");
 
         background-size:
             cover;
