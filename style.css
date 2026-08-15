@@ -448,6 +448,7 @@ a {
     max-width: 100%;
 
     background: #000;
+    
 
     /*
         Keep visible.
@@ -599,7 +600,7 @@ a {
 .lyrics-title.visible {
     animation:
         lyricsSlideUp
-        1.8s
+        2.2s
         ease-out
         forwards;
 }
@@ -608,7 +609,7 @@ a {
 .lyrics-text.visible {
     animation:
         lyricsSlideUp
-        2.4s
+        4.0s
         ease-out
         forwards;
 }
@@ -617,7 +618,7 @@ a {
 .lyrics-author.visible {
     animation:
         lyricsSlideUp
-        2.8s
+        4.8s
         ease-out
         forwards;
 }
@@ -653,7 +654,7 @@ a {
 
     width: 100%;
 
-    min-height: auto;
+    min-height: 0%;
 
     overflow: hidden;
 
@@ -676,6 +677,7 @@ a {
 
 .lyrics-text {
     justify-content: center;
+    font-style: italic;
 }
 
 
@@ -697,7 +699,7 @@ a {
 
     text-align: right;
 
-    font-style: italic;
+    font-style: normal;
 }
 
 
