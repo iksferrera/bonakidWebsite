@@ -1,3 +1,7 @@
+// =========================================================
+// CARD SCROLL ANIMATION
+// =========================================================
+
 const cards = document.querySelectorAll(".card");
 
 const observer = new IntersectionObserver(
@@ -25,14 +29,17 @@ cards.forEach((card) => {
 });
 
 
-// Video Modal
+// =========================================================
+// VIDEO MODAL
+// =========================================================
 
 function openVideo() {
 
     const modal = document.getElementById("videoModal");
     const video = document.getElementById("youtubeVideo");
 
-    video.src = "https://www.youtube.com/embed/Q9Ove2Oqd0Q?si=ShLDWZSSw8T5fQpT";
+    video.src =
+        "https://www.youtube.com/embed/Q9Ove2Oqd0Q?si=ShLDWZSSw8T5fQpT";
 
     modal.style.display = "flex";
 }
@@ -49,8 +56,8 @@ function closeVideo() {
     video.src = "";
 }
 
-// Close the modal when clicking outside of the video
 
+// Close the modal when clicking outside of the video
 
 window.addEventListener("click", function(event) {
 
@@ -62,7 +69,10 @@ window.addEventListener("click", function(event) {
 
 });
 
-// Music Modal
+
+// =========================================================
+// MUSIC MODAL
+// =========================================================
 
 function openMusic() {
 
@@ -84,20 +94,44 @@ function closeMusic() {
 }
 
 
+// =========================================================
+// PLAY SONG
+// =========================================================
+
 function playSong(title, file) {
 
     const audio = document.getElementById("audioPlayer");
 
     const songTitle = document.getElementById("songTitle");
 
+    const headerSongTitle =
+        document.getElementById("headerSongTitle");
+
+
+    // Change the title in the music modal
+
     songTitle.textContent = title;
 
+
+    // Change the title in the header
+
+    headerSongTitle.textContent = title;
+
+
+    // Change the music file
+
     audio.src = file;
+
+
+    // Play the new song
 
     audio.play();
 }
 
-// Toggle play/pause for the header music player
+
+// =========================================================
+// HEADER PLAY / PAUSE
+// =========================================================
 
 function toggleHeaderMusic() {
 
@@ -106,6 +140,7 @@ function toggleHeaderMusic() {
 
     const button =
         document.getElementById("headerPlayButton");
+
 
     if (audio.paused) {
 
@@ -123,11 +158,9 @@ function toggleHeaderMusic() {
 }
 
 
-
-
-/* automatically play the music when the headher player is opened */
-
-
+// =========================================================
+// KEEP HEADER BUTTON IN SYNC
+// =========================================================
 
 const audio =
     document.getElementById("audioPlayer");
@@ -136,21 +169,21 @@ const headerButton =
     document.getElementById("headerPlayButton");
 
 
-audio.addEventListener("play", () => {
+audio.addEventListener("play", function() {
 
     headerButton.textContent = "❚❚";
 
 });
 
 
-audio.addEventListener("pause", () => {
+audio.addEventListener("pause", function() {
 
     headerButton.textContent = "▶";
 
 });
 
 
-audio.addEventListener("ended", () => {
+audio.addEventListener("ended", function() {
 
     headerButton.textContent = "▶";
 
