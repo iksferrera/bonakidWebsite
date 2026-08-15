@@ -39,7 +39,7 @@ function openVideo() {
     const video = document.getElementById("youtubeVideo");
 
     video.src =
-        "https://www.youtube.com/embed/Q9Ove2Oqd0Q?si=ShLDWZSSw8T5fQpT";
+        "https://www.youtube.com/embed/videoseries?list=PLIvwyW3UOZd0";
 
     modal.style.display = "flex";
 }
