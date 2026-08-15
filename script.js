@@ -188,3 +188,112 @@ audio.addEventListener("ended", function() {
     headerButton.textContent = "▶";
 
 });
+
+
+// =========================================================
+// PHOTO GALLERY
+// =========================================================
+
+const galleryPhotos = [
+
+    "images/photos/Image2.jpg",
+    "images/photos/Image1.jpg",
+    "images/photos/Image3.jpg",
+    "images/photos/Image4.jpg",
+    "images/photos/Image5.jpg",
+    "images/photos/Image6.jpg",
+    "images/photos/Image7.jpg",
+    "images/photos/Image8.jpg",
+    "images/photos/Image9.jpg",
+    "images/photos/Image10.jpg",
+    "images/photos/Image11.jpg"
+    
+
+];
+
+
+let currentPhoto = 0;
+
+
+// Open gallery
+
+function openGallery() {
+
+    const modal =
+        document.getElementById("photoModal");
+
+    modal.style.display = "flex";
+
+    currentPhoto = 0;
+
+    showPhoto();
+
+}
+
+
+// Close gallery
+
+function closeGallery() {
+
+    const modal =
+        document.getElementById("photoModal");
+
+    modal.style.display = "none";
+
+}
+
+
+// Show current photo
+
+function showPhoto() {
+
+    const image =
+        document.getElementById("galleryImage");
+
+    const counter =
+        document.getElementById("photoCounter");
+
+
+    image.src =
+        galleryPhotos[currentPhoto];
+
+
+    counter.textContent =
+        `${currentPhoto + 1} / ${galleryPhotos.length}`;
+
+}
+
+
+// Previous photo
+
+function previousPhoto() {
+
+    currentPhoto--;
+
+    if (currentPhoto < 0) {
+
+        currentPhoto =
+            galleryPhotos.length - 1;
+
+    }
+
+    showPhoto();
+
+}
+
+
+// Next photo
+
+function nextPhoto() {
+
+    currentPhoto++;
+
+    if (currentPhoto >= galleryPhotos.length) {
+
+        currentPhoto = 0;
+
+    }
+
+    showPhoto();
+
+}

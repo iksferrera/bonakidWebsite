@@ -246,12 +246,12 @@
                     and life on the road.
                 </p>
 
-                <a
-                    href="#"
-                    class="card-button"
+                <button
+                     class="card-button"
+                     onclick="openGallery()"
                 >
-                    VIEW PHOTOS
-                </a>
+                     VIEW PHOTOS
+                </button>
 
             </div>
 
@@ -337,7 +337,9 @@
 </div>
 
     <!-- Music Playlist Modal -->
-        <!-- =========================================
+    
+    
+    <!-- =========================================
      MUSIC PLAYER
      ========================================= -->
 
@@ -411,6 +413,78 @@
     </div>
 
 </div>
+
+
+
+<!-- =========================================
+     PHOTO GALLERY
+     ========================================= -->
+
+<div
+    id="photoModal"
+    class="photo-modal"
+>
+
+    <div class="photo-gallery">
+
+        <!-- CLOSE -->
+
+        <button
+            class="photo-close"
+            onclick="closeGallery()"
+        >
+            &times;
+        </button>
+
+
+        <!-- PREVIOUS -->
+
+        <button
+            class="gallery-prev"
+            onclick="previousPhoto()"
+        >
+            &#10094;
+        </button>
+
+
+        <!-- MAIN PHOTO -->
+
+        <div class="gallery-image-container">
+
+            <img
+                id="galleryImage"
+                src=""
+                alt="BonaKid photo"
+            >
+
+        </div>
+
+
+         <!-- NEXT -->
+
+         <button
+             class="gallery-next"
+             onclick="nextPhoto()"
+         >
+                &#10095;
+          </button>
+
+
+        <!-- PHOTO COUNTER -->
+
+            <div
+                id="photoCounter"
+             class="photo-counter"
+            >
+                 1 / 5
+            </div>
+
+        </div>
+
+    </div>
+
+
+
 
 
 
