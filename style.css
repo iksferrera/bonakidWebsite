@@ -788,8 +788,6 @@ a {
 
     width: 100%;
 
-    min-height: 0%;
-
     overflow: hidden;
 
     display: flex;
@@ -804,6 +802,7 @@ a {
 
 .lyrics-title {
     justify-content: center;
+    min-height: 0;
 }
 
 
@@ -819,6 +818,7 @@ a {
 
 .lyrics-author {
     justify-content: flex-end;
+    min-height: 0;
 }
 
 
@@ -1843,20 +1843,34 @@ footer {
         width:
             100%;
 
-        min-height:
-            auto;
-
         background:
             transparent;
     }
 
 
-    #lyrics-author {
+    .lyrics-author {
         padding-right:
             10px;
 
+        padding-bottom: 50px;
+
         text-align:
             right;
+
+        min-height:
+            0%;
+
+        justify-content:
+            flex-end;
+    }
+
+    .lyrics-title {
+
+        min-height:
+            0;
+        
+        padding-top:
+            20px;
     }
 
 
